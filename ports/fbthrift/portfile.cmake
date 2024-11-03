@@ -2,11 +2,10 @@ vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO facebook/fbthrift
     REF "v${VERSION}"
-    SHA512 b1a880a922e5823ec6c87d1540651978d895a2d0389158865011198ca80034342f39f7b2c1a104745ccb1cb3cb8d355cb0afb5b08c38fb8187a285ea37071f26
+    SHA512 1e8c6b0c3f592b03a5b405d749771107fafdb267f274f892461d691add9201c147eca052e948b8a206cbe0bd94596ae5fd274030a4faaf42e6f626fb6a7c22b7
     HEAD_REF main
-    PATCHES 
-        fix-glog.patch
-        0002-fix-dependency.patch
+    PATCHES
+        fix-deps.patch
 )
 
 file(REMOVE "${SOURCE_PATH}/thrift/cmake/FindGMock.cmake")
@@ -34,6 +33,7 @@ file(REMOVE_RECURSE
     "${CURRENT_PACKAGES_DIR}/include/thrift/lib/cpp/test"
     "${CURRENT_PACKAGES_DIR}/include/thrift/lib/cpp/transport/test"
     "${CURRENT_PACKAGES_DIR}/include/thrift/lib/cpp/util/test"
+    "${CURRENT_PACKAGES_DIR}/include/thrift/lib/cpp2/async/metadata/test"
     "${CURRENT_PACKAGES_DIR}/include/thrift/lib/cpp2/debug_thrift_data_difference/test"
     "${CURRENT_PACKAGES_DIR}/include/thrift/lib/cpp2/detail/test"
     "${CURRENT_PACKAGES_DIR}/include/thrift/lib/cpp2/folly_dynamic/test"
@@ -42,6 +42,7 @@ file(REMOVE_RECURSE
     "${CURRENT_PACKAGES_DIR}/include/thrift/lib/cpp2/protocol/detail/test"
     "${CURRENT_PACKAGES_DIR}/include/thrift/lib/cpp2/protocol/test"
     "${CURRENT_PACKAGES_DIR}/include/thrift/lib/cpp2/protocol/tool"
+    "${CURRENT_PACKAGES_DIR}/include/thrift/lib/cpp2/reflection/demo"
     "${CURRENT_PACKAGES_DIR}/include/thrift/lib/cpp2/reflection/docs"
     "${CURRENT_PACKAGES_DIR}/include/thrift/lib/cpp2/runtime/test"
     "${CURRENT_PACKAGES_DIR}/include/thrift/lib/cpp2/security/extensions/test"
